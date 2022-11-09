@@ -6,7 +6,7 @@ pikachu.json:
 abilities.json: pikachu.json
 	cat pikachu.json | jq '.abilities[] | .ability | .name' > abilities.json
 
-print-abilities: abilities.json increment-prints
+print-abilities: abilities.json
 	cat abilities.json
 
 clean:
