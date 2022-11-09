@@ -1,6 +1,6 @@
 # Pikachu Makefile
 
-A very simple Makefile used in this article to illustrate how `make` works.
+A very simple Makefile used in [this article](https://github.com/kevinchar93/pikachu-makefile) to illustrate how `make` works.
 
 You'll need `make` installed to run it.
 
@@ -15,7 +15,7 @@ You'll need to install the package manager `homebrew` first , see [how to do thi
 
 Once `homebrew` is installed run `brew install make`
 
-### Windows
+### Windows
 
 _*Here be dragons!*_
 
