@@ -1,16 +1,20 @@
-# A Makefile the prints out Pikachu's abilities!
+# A Justfile that prints out Pikachu's abilities!
 
-pikachu.json:
-	curl -o pikachu.json https://pokeapi.co/api/v2/pokemon/pikachu
+API_RESPONSE_FILE := "pikachu.json"
+ABILITIES_FILE := "abilities.json"
+API_URL := "https://pokeapi.co/api/v2/pokemon/pikachu"
 
-abilities.json: pikachu.json
-	cat pikachu.json | jq '.abilities[] | .ability | .name' > abilities.json
+print-abilities: abilities
+	@cat {{ABILITIES_FILE}}
 
-print-abilities: abilities.json
-	cat abilities.json
+
+abilities: pikachu-api
+	@cat {{API_RESPONSE_FILE}} | jq '.abilities[] | .ability | .name' > {{ABILITIES_FILE}}
+
+
+pikachu-api:
+	@if ! {{path_exists(API_RESPONSE_FILE)}}; then curl -o {{API_RESPONSE_FILE}} {{API_URL}}; fi
+
 
 clean:
-	rm -f pikachu.json abilities.json
-
-.PHONY: clean
-.PHONY: print-abilities
+	rm -f {{ABILITIES_FILE}} {{API_RESPONSE_FILE}}
