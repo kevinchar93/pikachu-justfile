@@ -1,6 +1,6 @@
 # Pikachu Justfile
 
-A very simple Makefile used in [this article](https://github.com/kevinchar93/pikachu-makefile) to illustrate how a `Justfile` works.
+A very simple Justfile used in [this article](https://github.com/kevinchar93/pikachu-makefile) to illustrate how a `Justfile` works.
 
 You'll need `just` installed to run it.
 
